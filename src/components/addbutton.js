@@ -1,8 +1,17 @@
 import React from 'react'
 import '../App.css'
+import TwitterLogin from 'react-twitter-auth/lib/react-twitter-auth-component.js'
 
-function addAccount () {
-    return <button className = "AddAccountButton" >+ Add Account</button>//BUtton responsible for adding accounts
+class AddAccount extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (<TwitterLogin
+            requestTokenUrl="https://obscure-badlands-51767.herokuapp.com/"
+            />)
+    }
 }
 
-export default addAccount 
+export default AddAccount 

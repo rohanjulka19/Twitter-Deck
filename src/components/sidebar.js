@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
         return (
             <div className = "sidebar">
                 <h1>TW</h1>
-                <AddButton/>
+                <AddButton onClick = {this.props.onClick} />
             </div>
         )
     }
