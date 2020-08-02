@@ -8,9 +8,11 @@ class AddAccount extends React.Component {
     }
 
     render() {
-        return (<TwitterLogin
-            requestTokenUrl="https://obscure-badlands-51767.herokuapp.com/"
-            />)
+        return (
+            <button className = "AddAccountButton" onClick ={this.props.onClick} >
+                + ADD ACCOUNT
+            </button>
+        )
     }
 }
 
