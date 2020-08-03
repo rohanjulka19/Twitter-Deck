@@ -1,8 +1,13 @@
 import React from 'react'
 import '../App.css'
 
-function accountCard() {
-    return <h1> Account Card </h1>//Returns UI card with account name and an option to logout
-}
+function accountCard(props) {
+    return(
+        <div>
+            <img src={props.user.photoURL} /> 
+            <span>{props.user.displayName}</span>
+            <button>Logout</button>
+        </div>
+    )}
 
 export default accountCard 
