@@ -9,6 +9,7 @@ class Main extends React.Component {
         return (
             <div className = "main">
                <h1>Main Area</h1>
+               <button onClick = {this.props.getTweets}> Get Tweets !!</button>
             </div>
         )
     }
