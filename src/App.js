@@ -3,10 +3,10 @@ import Main from './components/main'
 import Sidebar from './components/sidebar'
 import './App.css'
 import {twitter_provider,auth_handler} from './firebase.js'
-import crypto from 'crypto'
+/*import crypto from 'crypto'
 import OAuth from 'oauth-1.0a'
 import axios from 'axios'
-import { METHODS } from 'http'
+import { METHODS } from 'http'*/
 
 class App extends React.Component {
   
@@ -47,8 +47,8 @@ class App extends React.Component {
   }
 
   getTweets() {
-    const oauth = OAuth ({
-      consumer: {} ,
+ /*   const oauth = OAuth ({
+      consumer: {key : "L9ecKX1gF1zti6iLYUltnMjPJ", secret: "ux6E5MV0x7FSZzjQRTFVgT6KG3bez3lKOOHOgpTUGfXLBd7mAG"} ,
       signature_method: 'HMAC-SHA1',
       hash_function(base_string, key) {
         return crypto
@@ -66,7 +66,7 @@ class App extends React.Component {
       key: "2447266872-owizz1VtMUlozSqW685ZlPYo6FlnfFxnJurlxOw", 
       secret : "PhHMi1qVRALypOx4gY2wl60Vs99nzz3sjIqQppAoc3nlX"
     }
-    axios.defaults.headers.common['Access-Control-Allow-Origin'] = "*"
+    axios.defaults.headers.common['Acess-Control-Allow-Oigin'] = "*"
     axios.get(request.url,{
       headers: oauth.toHeader(oauth.authorize(request, token))
     }).then(result => {
@@ -74,7 +74,7 @@ class App extends React.Component {
     }).catch(error => {
       console.log(error)
     })
-
+    */
   }
   
 

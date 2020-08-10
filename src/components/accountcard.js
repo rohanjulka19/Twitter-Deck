@@ -1,12 +1,14 @@
 import React from 'react'
 import '../App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 function accountCard(props) {
     return(
-        <div>
-            <img src={props.user.photoURL} /> 
-            <span>{props.user.displayName}</span>
-            <button>Logout</button>
+        <div className = "AccountCard">
+            <img src={props.user.photoURL} />
+            <span >{props.user.displayName}</span>
+            <button><FontAwesomeIcon icon = {faTimesCircle} /></button>
         </div>
     )}
 
