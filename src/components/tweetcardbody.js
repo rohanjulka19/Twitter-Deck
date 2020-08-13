@@ -2,9 +2,11 @@ import React from 'react'
 
 function tweetCardBody(props) {
 
+
     return (    
-        <div>
-            <span>{props.tweet_data}</span>
+        <div className = "TweetBody">
+        <p className = "TweetBodyData">{props.tweet_data}</p>
+        <p className = "TweetDate">{props.tweet_date}</p>
         </div>
     )
 

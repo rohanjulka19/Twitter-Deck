@@ -10,7 +10,7 @@ class Main extends React.Component {
             tweets : [{
                 text: "To make room for more expression we will now count all emojis as equal—including those with gender‍‍‍ and skin t… https://t.co/MkGjXf9aXm",
                 id:"1050118621198921728",
-                created_at: "Wed Oct 10 20:19:24 +0000 2018",
+                created_at: this.getDateTime("Wed Oct 10 20:19:24 +0000 2018"),
                 user : {
                     name: "Twitter API",
                     screen_name: "TwitterAPI",
@@ -20,6 +20,14 @@ class Main extends React.Component {
                 }
             }]
         }
+    }
+
+    getDateTime(date_time) {
+        let date_time_arr = date_time.split(" ")
+        let day = date_time_arr[0]
+        let time = date_time_arr[3]
+        let date = date_time_arr[2] + " " + date_time_arr[1] + " " + date_time_arr[5]
+        return ([day,date,time])
     }
 
     render() {
