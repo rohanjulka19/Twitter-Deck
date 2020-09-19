@@ -1,25 +1,16 @@
 import React from 'react'
+import axios from 'axios'
 import Main from './components/main'
 import Sidebar from './components/sidebar'
 import './App.css'
 import { twitter_provider, auth_handler } from './firebase.js'
-import axios from 'axios'
 
 class App extends React.Component {
 
   constructor(props) {
-    super(props)
+    super()
     this.state = {
-      users: [/*{
-       accessToken: "2447266872-owizz1VtMUlozSqW685ZlPYo6FlnfFxnJurlxOw",
-        secret: "PhHMi1qVRALypOx4gY2wl60Vs99nzz3sjIqQppAoc3nlX",
-        providerData: {
-          displayName: "rohan",
-          photoURL: "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
-          providerId: "twitter.com",
-          uid: "2447266872"
-        }
-      }*/]
+      users: []
     }
     this.addAccount = this.addAccount.bind(this)
   }
@@ -27,20 +18,17 @@ class App extends React.Component {
   addAccount() {
 
     auth_handler.signInWithPopup(twitter_provider).then((result) => {
-
-      this.setState({
-        users: [...this.state.users, {
-          accessToken: result.credential.accessToken,
-          secret: result.credential.secret,
-          providerData: result.user.providerData[0]
-        }]
-      })
+      console.log(result)
       axios.post("http://localhost:8000/user", {
         key: result.credential.accessToken,
         secret: result.credential.secret
-      })
-      console.log(result)
-      console.log("Success")
+      }).then(()=>{
+        this.setState({
+          users : [...this.state.users,{"accessToken": result.credential.accessToken,"providerData" : result.user.providerData[0]}]
+        })
+      }).catch(error => {
+        console.log(error)
+      } )
     }).catch((error) => {
       console.log(error)
     })
@@ -60,3 +48,15 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+/*{
+       accessToken: "2447266872-owizz1VtMUlozSqW685ZlPYo6FlnfFxnJurlxOw",
+        secret: "PhHMi1qVRALypOx4gY2wl60Vs99nzz3sjIqQppAoc3nlX",
+        providerData: {
+          displayName: "rohan",
+          photoURL: "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+          providerId: "twitter.com",
+          uid: "2447266872"
+        }
+      }*/
