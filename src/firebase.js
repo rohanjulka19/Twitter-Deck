@@ -6,7 +6,10 @@ firebase.initializeApp({
     authDomain: "twitter-deck-808a6.firebaseapp.com",
   })
 export let twitter_provider = new firebase.auth.TwitterAuthProvider();
-
+twitter_provider.setCustomParameters({
+    force_login : true ,
+    screen_name:"" 
+})
 
 export let auth_handler =  firebase.auth()
 

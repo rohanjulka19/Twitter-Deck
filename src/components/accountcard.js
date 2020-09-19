@@ -8,7 +8,7 @@ function accountCard(props) {
         <div className = "AccountCard">
             <img src={props.user.photoURL}  alt = "TweetHead"/>
             <span >{props.user.displayName}</span>
-            <button><FontAwesomeIcon icon = {faTimesCircle} /></button>
+            <button onClick = {() => props.onClickRemove(props.user.displayName)}><FontAwesomeIcon icon = {faTimesCircle} /></button>
         </div>
     )}
 

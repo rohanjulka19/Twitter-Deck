@@ -5,6 +5,7 @@ import Sidebar from './components/sidebar'
 import './App.css'
 import { twitter_provider, auth_handler } from './firebase.js'
 
+
 class App extends React.Component {
 
   constructor(props) {
@@ -13,6 +14,25 @@ class App extends React.Component {
       users: []
     }
     this.addAccount = this.addAccount.bind(this)
+    this.removeAccount = this.removeAccount.bind(this)
+  }
+
+  removeAccount(displayName) {
+    console.log("Called Delete")
+    let userToRemove = this.state.users.find(user => user.providerData.displayName === displayName)
+    console.log(userToRemove)
+    let filteredUsers = this.state.users.filter(user => user.providerData.displayName !== displayName)
+    console.log(filteredUsers)
+    this.setState({
+      users : [...filteredUsers]
+    })    
+    axios.delete("http://localhost:8000/user",{
+      params : {
+        key : `${userToRemove.accessToken}` 
+      }
+    })
+    .then(() => console.log("Deleted"))
+    .catch(error => console.log(error))
   }
 
   addAccount() {
@@ -40,7 +60,7 @@ class App extends React.Component {
         targetComponent = <div className = "main"><h1>Add Account</h1></div>
     return (
       <div className="app">
-        <Sidebar onClick={this.addAccount} users={this.state.users} />
+        <Sidebar onClick={this.addAccount} onClickRemove = {this.removeAccount} users={this.state.users} />
         {targetComponent}
       </div>
     )

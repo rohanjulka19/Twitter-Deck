@@ -6,7 +6,7 @@ import '../App.css'
 class Sidebar extends React.Component {
     render() {
         let accountList = this.props.users.map(user =>{
-            return <AccountCard user = {user.providerData} />
+            return <AccountCard onClickRemove = { this.props.onClickRemove } user = {user.providerData} />
         })
         return (
             <div className = "sidebar">
