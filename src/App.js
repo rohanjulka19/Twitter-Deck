@@ -55,7 +55,7 @@ class App extends React.Component {
   }
 
   render() {
-    let targetComponent = <Main/> 
+    let targetComponent = <Main users = {this.state.users}/> 
     if(this.state.users.length === 0) 
         targetComponent = <div className = "main"><h1>Add Account</h1></div>
     return (
@@ -72,7 +72,6 @@ export default App;
 
 /*{
        accessToken: "2447266872-owizz1VtMUlozSqW685ZlPYo6FlnfFxnJurlxOw",
-        secret: "PhHMi1qVRALypOx4gY2wl60Vs99nzz3sjIqQppAoc3nlX",
         providerData: {
           displayName: "rohan",
           photoURL: "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",

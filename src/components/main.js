@@ -8,10 +8,10 @@ class Main extends React.Component {
     constructor(props) {
         super()
         this.state = {
-            tweets: [],
             interval_id: ""
         }
         this.getTweets = this.getTweets.bind(this)
+        this.getTweetCards = this.getTweetCards.bind(this)
     }
 
     componentDidMount() {
@@ -27,18 +27,20 @@ class Main extends React.Component {
         clearInterval(this.state.interval_id)
     }
 
-
-
     getTweets() {
         console.log("Getting Tweets")
-        axios.get( "http://localhost:8000/tweets")
+        axios.get("http://localhost:8000/tweets")
             .then((result) => {
                 console.log(result)
-                result.data.map((tweet)=>{
-                    this.setState({
-                        tweets : [tweet, ...this.state.tweets]
+                result.data.map((user) => {
+                    this.setState((oldState) => {
+                        if (oldState[user.key] !== undefined) {
+                            return { [user.key]: [...user.tweets, ...oldState[user.key]] }
+                        } else {
+                            return { [user.key]: [...user.tweets] }
+                        }
                     })
-                    return true ; //To Fix react warning
+                    return true; //To Fix react warning
                 })
             })
             .catch(error => {
@@ -46,23 +48,38 @@ class Main extends React.Component {
             })
     }
 
+    getTweetCards() {
+        console.log(this.state)
+        let tweets = ""
+        tweets = this.props.users.map((user) => {
+            let tweetCards = ""
+            if (this.state[user.accessToken] !== undefined) {
+                tweetCards = this.state[user.accessToken].map((tweet) => {
+                    //Access Token and Key are same things
+                    return <TweetCard tweet={tweet} />
+                })
+            }
+            return tweetCards
+        })
+        console.log(tweets)
+        return tweets
+    }
 
     render() {
-        let tweets = this.state.tweets.map((tweet) => {
-            return <TweetCard tweet={tweet} />
-        })
         return (
             <div className="main">
-                {tweets}
+                {this.getTweetCards()}
             </div>
         )
     }
 }
 
-export default Main 
+export default Main
 
 
-/*{
+/*
+component-state : {
+    [accessToken] : [{
                 text: "To make room for more expression we will now count all emojis as equal—including those with gender‍‍‍ and skin t… https://t.co/MkGjXf9aXm",
                 id: "1050118621198921728",
                 created_at: this.getDateTime("Wed Oct 10 20:19:24 +0000 2018"),
@@ -72,5 +89,10 @@ export default Main
                     url: "https://t.co/8IkCzCDr19",
                     profile_image: "https://pbs.twimg.com/profile_images/942858479592554497/BbazLO9L_normal.jpg",
                     verified: true,
-                }
-            }*/
+                },..]
+    }
+    [accessToken1] : [Tweet Collection]
+    [accessToken2] : [Tweet Collection]
+}
+
+ */

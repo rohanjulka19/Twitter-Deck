@@ -1,0 +1,31 @@
+{data: Array(1), status: 200, statusText: "OK", headers: {…}, config: {…}, …}
+config: {url: "http://localhost:8000/tweets", method: "get", headers: {…}, transformRequest: Array(1), transformResponse: Array(1), …}
+data: Array(1)
+0:
+key: "2447266872-YfLJt8Uc222aKr1UHe6AIepBbJiAtL63C4nV0by"
+tweets: Array(20)
+0: {text: "Which Australians have impressed so far at #IPL202…ket looks back at how they did in the first week.", id: 1310700820007014400, created_at: Array(3), user: {…}}
+1: {text: "European Union members later this week are to disc… Turkey for its actions.↵↵https://t.co/sLPEFYpGpA", id: 1310700817599459300, created_at: Array(3), user: {…}}
+2: {text: "💬 "They set the bar and they're probably the best… getting there."↵↵#LIVARS https://t.co/sShD1b4Ftf", id: 1310700553513693200, created_at: Array(3), user: {…}}
+3: {text: "💬 "They have a lot of good work, a lot of belief …e to try to do."↵↵#LIVARS https://t.co/YfQLEB5HSV", id: 1310700549122273300, created_at: Array(3), user: {…}}
+4: {text: "💬 "We are in a different journey to Liverpool. Th…hat's for sure."↵↵#LIVARS https://t.co/NG7k8HUZ5t", id: 1310700545150267400, created_at: Array(3), user: {…}}
+5: {text: "💬 "We stayed in the game for almost the whole mat…ghout the game."↵↵#LIVARS https://t.co/9H2O28oe3X", id: 1310700534534475800, created_at: Array(3), user: {…}}
+6: {text: "RT @andrewrobertso5: I owed us a goal tonight 🤦🏻…rformance from the lads!! https://t.co/2aoa4nUjYc", id: 1310699639344189400, created_at: Array(3), user: {…}}
+7: {text: "The Sarva Shiksha Abhiyan, Assam (SSA Assam) has i… vacancies of teachers. ↵↵https://t.co/idFfmNOv8m", id: 1310698296864776200, created_at: Array(3), user: {…}}
+8: {text: "Plenty of impressive performances across the pitch…o gets your Man of the Match vote for #LIVARS? 🤔", id: 1310696372308500500, created_at: Array(3), user: {…}}
+9: {text: "🙋‍♂️ https://t.co/l4bD8rZGCC", id: 1310696291043864600, created_at: Array(3), user: {…}}
+10: {text: "This is the fourth seizure of heroin by Karbi Anglong police since August.↵↵https://t.co/AG9cfcxyW8", id: 1310696031978283000, created_at: Array(3), user: {…}}
+11: {text: "The Central Bureau of Investigation (CBI) on Monda…vestigating all aspects.↵↵https://t.co/BuRgpC07IC", id: 1310693265415569400, created_at: Array(3), user: {…}}
+12: {text: "Win a signed @DiogoJota18 shirt! 🤩↵↵Head to the Match Centre to enter 👇", id: 1310693225284464600, created_at: Array(3), user: {…}}
+13: {text: "AB1 making them 𝗕𝗜𝗚 saves↵↵🧤😍 https://t.co/4Qu3hOFNbu", id: 1310691196667388000, created_at: Array(3), user: {…}}
+14: {text: "Anfield debut ✅↵First goal ✅  ↵First @premierleagu…↵Well in, @DiogoJota18 👊 https://t.co/NTLUHbzpQn", id: 1310688475629396000, created_at: Array(3), user: {…}}
+15: {text: "As per the Centre’s notification, Kashmiri, Dogri,… in the Union Territory.↵↵https://t.co/ftdKeMmmdd", id: 1310688230707261400, created_at: Array(3), user: {…}}
+16: {text: "Three @premierleague games. Three wins.↵↵#YNWA ✊ https://t.co/iCRDlZNMsQ", id: 1310686955898835000, created_at: Array(3), user: {…}}
+17: {text: "MPSC will conduct its subordinate services (group …xam on October 11, 2020.↵↵https://t.co/huOi8mnNSr", id: 1310685714724483000, created_at: Array(3), user: {…}}
+18: {text: "A special moment 🤗 https://t.co/WXSnS8XcXN", id: 1310684816908710000, created_at: Array(3), user: {…}}
+19: {text: "How do you judge that one then, Gooners?↵↵📺 Join …at at Anfield...↵↵#LIVARS https://t.co/mvcc6xLmyI", id: 1310683933978366000, created_at: Array(3), user: {…}}
+length: 20
+__proto__: Array(0)
+__proto__: Object
+length: 1
+__proto__: Array(0)

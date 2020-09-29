@@ -2,6 +2,7 @@ import React from 'react'
 import '../App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { CirclePicker } from 'react-color'
 
 function accountCard(props) {
     return(
@@ -13,3 +14,7 @@ function accountCard(props) {
     )}
 
 export default accountCard 
+
+
+// <CirclePicker onChangeComplete = {} />
+           
