@@ -11,10 +11,27 @@ class App extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      users: []
+      users: [],
+      colors : ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', 
+      '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']
     }
     this.addAccount = this.addAccount.bind(this)
     this.removeAccount = this.removeAccount.bind(this)
+    this.changeColour = this.changeColour.bind(this)
+  }
+
+  changeColour(color, uid) {
+    console.log(color.hex)
+    console.log(uid)
+    let mutableUsers = this.state.users;
+    mutableUsers.map(user => {
+      if (user.providerData.uid === uid) {
+        user.color = `${color.hex}`
+      }
+    })
+    this.setState({
+      users : [...mutableUsers]
+    })
   }
 
   removeAccount(displayName) {
@@ -24,43 +41,46 @@ class App extends React.Component {
     let filteredUsers = this.state.users.filter(user => user.providerData.displayName !== displayName)
     console.log(filteredUsers)
     this.setState({
-      users : [...filteredUsers]
-    })    
-    axios.delete("http://localhost:8000/user",{
-      params : {
-        key : `${userToRemove.accessToken}` 
+      users: [...filteredUsers]
+    })
+    axios.delete("http://localhost:8000/user", {
+      params: {
+        key: `${userToRemove.accessToken}`
       }
     })
-    .then(() => console.log("Deleted"))
-    .catch(error => console.log(error))
+      .then(() => console.log("Deleted"))
+      .catch(error => console.log(error))
   }
 
   addAccount() {
-
     auth_handler.signInWithPopup(twitter_provider).then((result) => {
       console.log(result)
       axios.post("http://localhost:8000/user", {
         key: result.credential.accessToken,
         secret: result.credential.secret
-      }).then(()=>{
+      }).then(() => {
         this.setState({
-          users : [...this.state.users,{"accessToken": result.credential.accessToken,"providerData" : result.user.providerData[0]}]
+          users: [...this.state.users, 
+            { "accessToken": result.credential.accessToken, 
+              "providerData": result.user.providerData[0] ,
+              "color": this.state.colors[Math.floor(Math.random()*10)]
+            }]
         })
       }).catch(error => {
         console.log(error)
-      } )
+      })
     }).catch((error) => {
       console.log(error)
     })
   }
 
   render() {
-    let targetComponent = <Main users = {this.state.users}/> 
-    if(this.state.users.length === 0) 
-        targetComponent = <div className = "main"><h1>Add Account</h1></div>
+    let targetComponent = <Main users={this.state.users} />
+    if (this.state.users.length === 0)
+      targetComponent = <div className="main"><h1>Add Account</h1></div>
     return (
       <div className="app">
-        <Sidebar onClick={this.addAccount} onClickRemove = {this.removeAccount} users={this.state.users} />
+        <Sidebar onClick={this.addAccount} onClickRemove={this.removeAccount} users={this.state.users} changeColour = {this.changeColour} />
         {targetComponent}
       </div>
     )

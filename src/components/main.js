@@ -56,7 +56,7 @@ class Main extends React.Component {
             if (this.state[user.accessToken] !== undefined) {
                 tweetCards = this.state[user.accessToken].map((tweet) => {
                     //Access Token and Key are same things
-                    return <TweetCard tweet={tweet} />
+                    return <TweetCard tweet={tweet} borderColor = {user.color}/>
                 })
             }
             return tweetCards
